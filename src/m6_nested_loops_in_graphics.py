@@ -96,7 +96,7 @@ def draw_L(window, circle, r, c):
             new_circle.move_center_to(x,y)
             new_circle.fill_color = circle.fill_color
             new_circle.attach_to(window)
-            window.render(0.1)
+            window.render(0.01)
 
             x = x + (2 * radius)  # Move x to the right, for next circle
 
@@ -110,7 +110,7 @@ def draw_L(window, circle, r, c):
             new_circle.move_center_to(x, y)
             new_circle.fill_color = circle.fill_color
             new_circle.attach_to(window)
-            window.render(0.1)
+            window.render(0.01)
 
             x = x + (2 * radius)  # Move x to the right, for next circle
 
@@ -127,13 +127,12 @@ def draw_L(window, circle, r, c):
             new_circle.move_center_to(x, y)
             new_circle.fill_color = circle.fill_color
             new_circle.attach_to(window)
-            window.render(0.1)
+            window.render(0.01)
 
             x = x + (2 * radius)  # Move x to the right, for next circle
 
         y = y + 2 * radius  # Move y down, for the next row of circles
         x = original_x  # Reset x to the left-edge, for the next row
-
 
 
 def run_test_draw_wall_on_right():
@@ -172,9 +171,24 @@ def draw_wall_on_right(rectangle, n, window):
     and n is a small, positive integer.
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # -------------------------------------------------------------------------
+    x1 = rectangle.corner_1.x
+    x2 = rectangle.corner_2.x
+    y1 = rectangle.corner_1.y
+    y2 = rectangle.corner_2.y
+    width = x2 - x1
+    height = y2 - y1
+    for i in range(n):  # Loop through the rows
+        for j in range(i):  # Loop through the columns
+            new_rect = rectangle.clone()
+            new_rect.move_by(-1 * j * width, 0)
+            new_rect.attach_to(window)
+            window.render(0.01)
+
+        rectangle.move_by(0, height)  # Move y down, for the next row of circles
+
 
 
 # -----------------------------------------------------------------------------
