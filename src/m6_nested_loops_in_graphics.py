@@ -103,7 +103,7 @@ def draw_L(window, circle, r, c):
         y = y + 2 * radius  # Move y down, for the next row of circles
         x = original_x  # Reset x to the left-edge, for the next row
     n_y = y
-
+    window.continue_on_mouse_click()
     for i in range(3):  # Loop through the rows
         for j in range(3):  # Loop through the columns
             new_circle = circle.clone()
@@ -120,7 +120,7 @@ def draw_L(window, circle, r, c):
     original_x = original_x + (6 * r)
     x = original_x
     y = n_y
-
+    window.continue_on_mouse_click()
     for i in range(3):  # Loop through the rows
         for j in range(c):  # Loop through the columns
             new_circle = circle.clone()
